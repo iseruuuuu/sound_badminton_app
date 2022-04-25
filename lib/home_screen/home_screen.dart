@@ -29,7 +29,7 @@ class HomeScreen extends StatelessWidget {
             front: Obx(
               () => FourSwipeDirection(
                 swipeUp: () {
-                  controller.addScore(true);
+                  controller.checkDeuce(true);
                   rightKey.currentState?.toggleCard();
                 },
                 swipeDown: () {
@@ -45,7 +45,7 @@ class HomeScreen extends StatelessWidget {
             back: Obx(
               () => FourSwipeDirection(
                 swipeUp: () {
-                  controller.addScore(true);
+                  controller.checkDeuce(true);
                   rightKey.currentState?.toggleCard();
                 },
                 swipeDown: () {
@@ -107,7 +107,7 @@ class HomeScreen extends StatelessWidget {
             front: Obx(
               () => FourSwipeDirection(
                 swipeUp: () {
-                  controller.addScore(false);
+                  controller.checkDeuce(false);
                   leftKey.currentState?.toggleCard();
                 },
                 swipeDown: () {
@@ -123,7 +123,7 @@ class HomeScreen extends StatelessWidget {
             back: Obx(
               () => FourSwipeDirection(
                 swipeUp: () {
-                  controller.addScore(false);
+                  controller.checkDeuce(false);
                   leftKey.currentState?.toggleCard();
                 },
                 swipeDown: () {

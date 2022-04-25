@@ -21,17 +21,18 @@ class HomeScreenController extends GetxController {
   }
 
   Future<void> addScore(bool isScore) async {
-    //true -> 右　　　　false -> 左
     if (isScore) {
-      if (rightScore.value >= 21) {
+      if (rightScore.value >= 10) {
         addPoint(true);
         rightScore.value = 0;
+        leftScore.value = 0;
       } else {
         rightScore.value++;
       }
     } else {
-      if (leftScore.value >= 21) {
+      if (leftScore.value >= 10) {
         addPoint(false);
+        rightScore.value = 0;
         leftScore.value = 0;
       } else {
         leftScore.value++;
@@ -54,6 +55,33 @@ class HomeScreenController extends GetxController {
       }
     }
     speak();
+  }
+
+  void checkDeuce(bool isScore) {
+    if (rightScore.value >= 10 && leftScore.value >= 10) {
+      if (rightScore.value >= leftScore.value + 2 ||
+          leftScore.value >= rightScore.value + 2) {
+        if (isScore) {
+          addPoint(true);
+          rightScore.value = 0;
+          leftScore.value = 0;
+        } else {
+          addPoint(false);
+          rightScore.value = 0;
+          leftScore.value = 0;
+        }
+      } else {
+        if (isScore) {
+          rightScore.value++;
+          speak();
+        } else {
+          leftScore.value++;
+          speak();
+        }
+      }
+    } else {
+      addScore(isScore);
+    }
   }
 
   void addPoint(bool isScore) {
