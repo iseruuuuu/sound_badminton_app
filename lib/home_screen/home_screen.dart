@@ -3,7 +3,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:four_swipe_direction/four_swipe_direction.dart';
 import 'package:get/get.dart';
-
 import 'children/floating_action_button_item.dart';
 import 'children/point_item.dart';
 import 'children/score_item.dart';
@@ -177,7 +176,6 @@ class HomeScreen extends StatelessWidget {
             CupertinoDialogAction(
               child: const Text("OK"),
               onPressed: () {
-                //TODO 得点をリセットする。
                 controller.reset();
                 Navigator.of(context).pop();
               },
